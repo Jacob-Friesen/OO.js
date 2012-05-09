@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>	
+    <title>OO.js - Classical Objected Oriented Javascript Library</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="language" content="en-us"/>
+    <meta name="y_key" content="03039f6c2f3e734a" /> <!-- required for Yahoo -->
+    <meta name="google-site-verification" content="235PQo0UN80dd5QGhY0NR8UGc2HkUTW_8qTSduslRBs" /><!-- required for google webmasters-->
+    <meta name="description" content="OO.js Base Page"/>
+    <meta name="keywords" content= "oojs, oo js, oo.js, jacobs oo, jacob's oo"/>
+    <meta name="revisit-after" content="1 day"/>
+    <meta name="classification" content="oojs, Main"/>
+    <meta name="Robots" content="INDEX,FOLLOW"/>
+    <link rel="shortcut icon" href="http://www.jacobfriesen.com/favicon.ico" style="width:16px;height:16px"/>
+    <link rel="stylesheet" href="oojs.css" type="text/css" media="screen" />
+	<!-- Needed for script highlighting -->
+	<script src="../js/jquery.min.js"></script>
+	<!-- For Script Highlighting, link to main page: http://softwaremaniacs.org/soft/highlight/en/ -->
+	<link rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/default.min.css">
+	<script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+	<script type="text/javascript">
+	    hljs.initHighlightingOnLoad();
+	</script>
+</head>
+<body>
+	<div class="centerPanel">
+		<h1 class="mainTitle">OO.js - Classical Objected Oriented Javascript Library</h1>
+		<h3 class="mainTitle">Author: Jacob Friesen, F.Jacob.J@gmail.com, MIT Licensed</h3>
+		
+		<p>
+			<b>Download:</b> <a href="oo.js" title="download the regular oo.js library">regular</a> <a href="oo.min.js" title="download the minified oo.js library">minified</a>
+		</p>
+		
+		<p>
+			Welcome to version 0.5 of OO.js a tiny (~1kb minified) javascript OO library. OO.js provides a clean and consistent
+			way to use classical inheritance in Javascript as opposed to the custom way, <a href="http://www.crockford.com/javascript/inheritance.html">example</a>.
+			This library is pure JavaScript and will not interfer with any libraries except Prototype.js (I'm working on this issue).
+			I believe it's better to explain in code that English when possible, so here's some code:
+		</p>
+		
+		<pre><code>
+Class.create(function SubClass(){
+    // Private variables and functions
+    var type = 'subclass';
+	
+    // Public variables and functions
+    return{
+        sayHello: function (){
+    	    return 'Im a ' + type;
+        }
+    }
+}, this);// the this is the scope you can assign this to anything you want.
+
+// The subclass prints correctly
+var subClass = SubClass();
+console.log(subClass.sayHello());
+
+// Also note the following produces undefined as the hello variable is private
+console.log(subClass.type)
+
+// You can instantiate an object and assign it to a variable at the same time if you want via function auto execution
+var subClassB = Class.create(function SubClassB(){
+    // Private variables and functions
+    var type = 'subclassB';
+	
+    // Public variables and functions
+    return{
+        sayHello: function (){
+    	    return 'Im a ' + type;
+        }
+    }
+}, this)();// Notice the ();
+console.log(subClassB.sayHello());
+
+// The class is still regarded as created so the following is valid
+var subClassB2 = SubClassB();
+console.log(subClassB2.sayHello());
+
+// Now for inheritance
+SubClass.create(function SubSubClass(){
+    // Public variables and functions
+    return{
+        sayHello: function (){
+    	    return 'Method has been overridden';
+        }
+    }
+}, this);
+
+// The method was overridden
+var subSubClass = SubSubClass();
+console.log(subSubClass.sayHello());
+
+/*
+ * Variables are overridden just like functions. I should note if you use this.something = x it immediatly
+ * makes something a public property. I would not recommend doing this as the variable is not accessable within
+ * the actual class being created. Return the variable to make it public instead. This is how JavaScript normally
+ * works. Without further ado here is some variable overriding:
+ */
+
+Class.create(function VarClass(){
+    // Public variables and functions
+    return{
+        variable: 'A',
+        sayVariable: function (){
+    	    return 'var ' + this.variable;// Always use this when refering to public properties
+        }
+    }
+}, this);
+
+var varClass = VarClass();
+console.log(varClass.sayVariable());
+
+VarClass.create(function SubVarClass(){
+    // Public variables and functions
+    return{
+        variable: 'B'
+    }
+}, this);
+
+var subVarClass = SubVarClass();
+console.log(subVarClass.sayVariable());
+
+// Finally to show the parent function. Note before a child's contructor is called the parents is (this is recursive).
+console.log(subVarClass.parent.sayVariable());
+		</code></pre>
+		
+		<p>
+			So just to review here is the structure for class instantion in OOS:
+		</p>
+		
+		<pre><code>
+&lt;Parent&gt;.create(function &lt;Child&gt;(){
+    // Private variables and functions
+	
+    // Public Variables and  functions
+    return{
+    }
+}, &lt;Scope&gt;);
+		</code></pre>
+		
+		<h2>Response to Criticisms</h2>
+		<p>
+			If you're an experienced JavaScripter you will probably have at least 3 main questions after reading this, they are addressed below:
+		</p>
+		
+		<!-- Why bother with class based OO? -->
+		<h3>1. Javascript already has Prototypal OO why bother with implementing Class based OO?</h3>
+		<p>
+			There is nothing wrong with Prototypical OO and like most experienced JavaScripters believe it is the right way to go. Although I believe
+			JavaScript should also provide intuitive Classical OO. This lessens the learning curve to people who almost exclusively code server side as
+			they likely will have only seen Class based OO.
+		</p>
+		
+		<!-- Why THIS library? -->
+		<h3>2. Theres already Classical OO JavaScript libraries, why create another one?</h3>
+		<p>
+			Firstly most OO Javascript libraries are in big packages that come with a lot of other stuff you may not ever use, like Prototype or ExtJS. There is
+			also other self contained libraries like mine e.g <a href="http://dean.edwards.name/weblog/2006/03/base/" title="link to base.js library">base.js</a>,
+			though there is none that allows the function subclass(){} notation I use. I personally prefer this notation, and this is the reason why this library
+			exists at all. Note I think Prototype, ExtJS, base.js and many other libraries are great they just didn't provide the exact functionality I was looking for.
+		</p>
+		
+		<!-- Why pure JavaScript? -->
+		<h3>3. Why use pure Javascript?</h3>
+		<p>
+			There are 2 reasons, 1 being that the way I implemented classical OO in JavaScript doesn't involve any DOM manipulations or major browser inconsitency
+			issues. The second being that every popular JavaScript library has its rise and fall even JQuery will one day be replaced. Basing my library on other
+			one means if that other library loses popularity it will completely obsolete mine unless I recode it.
+		</p>
+		
+		<!-- This library will probably fail... -->
+		<h3>4. You realize this library will probably never become popular, given how much competition you have.</h3>
+		<p>
+			Thats not a question, but I'll still provide an answer. I built this library because I personally was unsastified with the current libraries so really
+			if I am the only one who uses this library I have accomplished my goal. The only reason OO.js public and open source is to provide functionality to
+			anyone who shares the same preferences as I do so that they do not have to code a library themselves.
+		</p>
+	</div>
+	
+	<cite>Jacob Friesen 2012, All contents and source except the highlight JavaScript and CSS files are MIT Licensed.</cite>
+</body>
+</html>
