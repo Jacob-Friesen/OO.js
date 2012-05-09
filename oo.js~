@@ -84,14 +84,8 @@ Class = {
             var scope = arguments[arguments.length - 1];
             
             // Add every "object" specified
-            for (var i = 0; i < arguments.length - 1; i++){
-                // Need to set the name in IE 9, its the only modern browser that doesn't support arguments.callee.name
-                if (navigator.appName == 'Microsoft Internet Explorer'){
-                    var name = arguments[i].toString().substr('function '.length);
-                    arguments[i].name = name.substr(0, name.indexOf('('));
-                }
+            for (var i = 0; i < create.arguments.length - 1; i++)
                 objs.push(this.add_class.call(scope, arguments[i], this));
-            }
         
             if (objs.length == 1)
                 return objs[0];
@@ -99,5 +93,4 @@ Class = {
         }
     }
 }
-
 
