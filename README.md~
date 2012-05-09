@@ -1,6 +1,6 @@
 #OO.js
 
-Website: <a href="jacobfriesen.com/oojs">jacobfriesen.com/oojs</a>
+Website: <a href="http://jacobfriesen.com/oojs">jacobfriesen.com/oojs</a>
 
 Welcome to version 0.5 of OO.js a tiny (~1kb minified) javascript OO library. OO.js provides a clean and consistent way to use classical inheritance in Javascript as opposed to the custom way, example. This library is pure JavaScript and will not interfere with any libraries except Prototype.js (I'm working on this issue).
 

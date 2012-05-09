@@ -6,7 +6,7 @@ Welcome to version 0.5 of OO.js a tiny (~1kb minified) javascript OO library. OO
 
 ##Installation
 
-Just include oo.js before (or make it load before) any Javascript that loads before it. Thats it, no dependencies. The other files are here if you want to test it using the exact same methods I do.
+Just include oo.js before (or make it load before) any Javascript that needs to use it. Thats it, no dependencies. The other files are here if you want to test it using the exact same methods I do.
 
 ##How It Works
 I believe it's better to explain in code than English when possible, so here's some code:
