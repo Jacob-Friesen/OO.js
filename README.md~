@@ -3,7 +3,7 @@
 Website: jacob
 Welcome to version 0.5 of OO.js a tiny (~1kb minified) javascript OO library. OO.js provides a clean and consistent way to use classical inheritance in Javascript as opposed to the custom way, example. This library is pure JavaScript and will not interfere with any libraries except Prototype.js (I'm working on this issue). I believe it's better to explain in code than English when possible, so here's some code:
 
-<pre><code>
+<pre>
 
 Class.create(function SubClass(){
     // Private variables and functions
@@ -101,7 +101,7 @@ So just to review here is the structure for class instantion in OOS:
     }
 }, <Scope>);
 
-</code></pre>
+</pre>
 		
 
 ###Response to Criticisms
