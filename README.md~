@@ -112,22 +112,22 @@ So just to review here is the structure for class instantion in OOS:
 </code></pre>
 		
 
-###Response to Criticisms
+##Response to Criticisms
 
-If you're an experienced Javascripter you will probably have at least 3 main questions after reading this, they are addressed below:
+If you're an experienced Javascripter you will probably have at least 4 main questions after reading this, they are addressed below:
 
-####1. Javascript already has Prototypal OO why bother with implementing Class based OO?
+###1. Javascript already has Prototypal OO why bother with implementing Class based OO?
 
 There is nothing wrong with Prototypical OO and like most experienced JavaScripters believe it is the right way to go. Although I believe JavaScript should also provide intuitive Classical OO. This lessens the learning curve to people who almost exclusively code server side as they likely will have only seen Class based OO.
 
-####2. Theres already Classical OO JavaScript libraries, why create another one?
+###2. Theres already Classical OO JavaScript libraries, why create another one?
 
 Firstly most OO Javascript libraries are in big packages that come with a lot of other stuff you may not ever use, like Prototype or ExtJS. There is also other self contained libraries like mine e.g base.js, though there is none that allows the function subclass(){} notation I use. I personally prefer this notation, and this is the reason why this library exists at all. Note I think Prototype, ExtJS, base.js and many other libraries are great they just didn't provide the exact functionality I was looking for.
 
-####3. Why use pure Javascript?
+###3. Why use pure Javascript?
 
 There are 2 reasons, 1 being that the way I implemented classical OO in JavaScript doesn't involve any DOM manipulations or major browser inconsitency issues. The second being that every popular JavaScript library has its rise and fall even JQuery will one day be replaced. Basing my library on other one means if that other library loses popularity it will completely obsolete mine unless I recode it.
 
-####4. You realize this library will probably never become popular, given how much competition you have.
+###4. You realize this library will probably never become popular, given how much competition you have.
 
 Thats not a question, but I'll still provide an answer. I built this library because I personally was unsastified with the current libraries so really if I am the only one who uses this library I have accomplished my goal. The only reason OO.js public and open source is to provide functionality to anyone who shares the same preferences as I do so that they do not have to code a library themselves. 
